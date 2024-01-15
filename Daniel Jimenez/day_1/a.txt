@@ -1,0 +1,11 @@
+//DIA 1 - ¿Cuánto ha gastado en total cada cliente en el restaurante?
+
+SELECT      A."customer_id" as id_cliente ,
+            SUM(B."price") as precio
+FROM SQL_EN_LLAMAS.CASE01.MEMBERS A
+INNER JOIN SQL_EN_LLAMAS.CASE01.SALES C
+    ON A."customer_id" = C."customer_id"
+INNER JOIN SQL_EN_LLAMAS.CASE01.MENU B
+    ON C."product_id" = B."product_id"
+GROUP BY 1  
+ORDER BY 2 DESC;
